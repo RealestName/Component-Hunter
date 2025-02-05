@@ -3,7 +3,7 @@ import pyperclip
 from colorama import Fore, Style
 
 # URL of the raw script file
-url = "https://raw.githubusercontent.com/RealestName/Component-Updater/refs/heads/main/script.txt"
+url = "https://raw.githubusercontent.com/RealestName/Component-Hunter/refs/heads/main/script.txt"
 
 try:
     # Fetch the script content
