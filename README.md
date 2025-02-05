@@ -70,4 +70,4 @@ python "C:\Users\admin\scripts\components_to_clipboard.py" %*</pre>
 <h3>📜 License</h3>
 <p>This project is licensed under the MIT License.</p>
 
-<h2>🚀 Happy version checking!</h2>
+<h2>🚀 Happy Vulnerable Versions Checking!</h2>
