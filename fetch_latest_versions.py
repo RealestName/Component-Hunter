@@ -1,5 +1,5 @@
 import threading
-import os  # Import os to access the environment variable
+import os
 from flask import Flask
 import requests
 from bs4 import BeautifulSoup
@@ -103,6 +103,9 @@ def get_github_file_content():
     headers = {"Authorization": f"token {GITHUB_TOKEN}"}
     
     response = requests.get(url, headers=headers)
+    if response.status_code == 404:
+        return {"content": "", "sha": None}  # File doesn't exist yet
+    
     response.raise_for_status()
     
     file_data = response.json()
@@ -120,7 +123,12 @@ def update_github_file(file_info, new_versions):
 
     # Try to find and replace the `latestVersions` object
     version_regex = r"const latestVersions = \{.*?\};"
-    updated_content = re.sub(version_regex, f"const latestVersions = {new_versions_json};", file_content, flags=re.DOTALL)
+    
+    if re.search(version_regex, file_content, flags=re.DOTALL):
+        updated_content = re.sub(version_regex, f"const latestVersions = {new_versions_json};", file_content, flags=re.DOTALL)
+    else:
+        # If `latestVersions` isn't found, append it to the file
+        updated_content = file_content + f"\nconst latestVersions = {new_versions_json};"
 
     if updated_content == file_content:
         print("No changes detected in latestVersions. Skipping update.")
@@ -134,6 +142,7 @@ def update_github_file(file_info, new_versions):
         "message": "Update versions in script.txt",
         "content": encoded_content,
         "sha": file_sha,
+        "branch": "main"  # Change this to your correct branch
     }
 
     headers = {"Authorization": f"token {GITHUB_TOKEN}"}
@@ -141,12 +150,14 @@ def update_github_file(file_info, new_versions):
     update_url = f"https://api.github.com/repos/{GITHUB_OWNER}/{GITHUB_REPO}/contents/{GITHUB_FILE_PATH}"
     response = requests.put(update_url, headers=headers, json=update_data)
 
-    if response.status_code == 200 or response.status_code == 201:
+    if response.status_code in [200, 201]:
         print("GitHub file updated successfully with new versions.")
     else:
         print(f"Failed to update GitHub file: {response.status_code}, {response.text}")
 
-
 if __name__ == '__main__':
+    file_info = get_github_file_content()
+    update_github_file(file_info, library_versions)
+
     # Run Flask in the main thread
     run_flask()
