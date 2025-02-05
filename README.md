@@ -1,62 +1,86 @@
-<h1 align="center">🛠️ Setup Instructions</h1>
+🔍 Web Application Library Version Checker
 
-<p align="center">This fetch & update script runs 24/7 by a bot. You just need to download <code>components_to_clipboard.py</code> and follow the steps below.</p>
+📌 Overview
 
----
+This project includes a bot that automatically checks for new versions of web application libraries every 12 hours. Additionally, it provides a JavaScript snippet that can be pasted into the browser console to detect and display the currently used versions of specified components alongside their latest available versions.
 
-## 🚀 Setting Up <code>components_to_clipboard.py</code> as <code>cwkv</code> Alias on Windows
+A Python script is also included, which retrieves the JavaScript snippet from a GitHub-hosted file and copies it to the clipboard, allowing users to easily paste it into their browser console.
 
-### 1️⃣ Move or Locate the Script
-Place <code>components_to_clipboard.py</code> in a folder where you want to keep your scripts.
+🚀 Features
 
-### 2️⃣ Add the Directory to System PATH
+Automated Version Checking: The bot runs every 12 hours to detect new library versions.
 
-#### 🔹 Open System Properties
-Press <kbd>Win</kbd> + <kbd>R</kbd>, type <code>sysdm.cpl</code>, and hit <kbd>Enter</kbd>.
+JavaScript Snippet: Extracts the current versions of specified web application components and displays them in a structured table.
 
-<img src="https://github.com/user-attachments/assets/d4d568c3-f0d1-45e2-ab66-10ae403f0ead" alt="System Properties" width="500"/>
+Clipboard Helper: A Python script fetches the latest JavaScript snippet and copies it to the clipboard for quick usage.
 
-#### 🔹 Navigate to Advanced tab and Click **Environment Variables**
+Simple Setup: Easily integrate the Python script into your system for convenient access.
 
-<img src="https://github.com/user-attachments/assets/77913ff1-a156-4c2f-a3e6-422353f8b4e1" alt="Environment Variables" width="500"/>
+🛠️ Installation & Setup
 
-#### 🔹 Edit the Path Variable
-Under **System variables**, find and select **Path**, then click **Edit**.
+1️⃣ Download & Place the Script
 
-<img src="https://github.com/user-attachments/assets/0d196c25-1893-4278-afa7-cb95258b9c1d" alt="Path Variable" width="500"/>
+Download components_to_clipboard.py and place it in a preferred folder where you keep scripts.
 
-#### 🔹 Add Your Script's Folder Path
-Click **New** and add the full path to your folder (e.g., <code>C:\Users\YourUsername\Scripts\</code>).
+2️⃣ Add Script Folder to System PATH (Windows)
 
-<img src="https://github.com/user-attachments/assets/b9cae7af-411b-44ca-b27c-18fc8d999932" alt="Add Path" width="500"/>
+To run the script from anywhere, add its directory to the system PATH.
 
-#### 🔹 Save Changes
-Click **OK** to save and exit.
+🔹 Open System Properties
 
----
+Press Win + R, type sysdm.cpl, and press Enter.
 
-### 3️⃣ Create a Batch File (Alias <code>cwkv</code>)
+🔹 Navigate to Environment Variables
 
-#### ✍️ Create a New Batch File
+Click the Advanced tab.
+
+Select Environment Variables.
+
+Under System variables, find and edit the Path variable.
+
+Click New and add the full path to the folder containing the script (e.g., C:\Users\admin\scripts\).
+
+Click OK to save.
+
+3️⃣ Create a Batch Alias (Optional for Windows Users)
+
+For easier execution, create a batch file alias.
+
+✍️ Create a New Batch File
+
 Open a text editor and paste the following:
 
-```batch
 @echo off
-python "<PATH_TO_SCRIPT>" %*
-```
+python "C:\Users\admin\scripts\components_to_clipboard.py" %*
 
-#### 💾 Save the File
-Save the file as <code>cwkv.bat</code> in the same folder as your script.
+Save the file as cwkv.bat in the same folder as your script.
 
-<img src="https://github.com/user-attachments/assets/8c91058c-0ae4-428c-b8cb-f8b039cb3cdb" alt="Save Batch File" width="500"/>
+4️⃣ Run the Script
 
-#### 🖥️ Test the Command
-Open a new command prompt and type:
+To fetch and copy the latest JavaScript snippet to the clipboard, simply run:
 
-```sh
 cwkv
-```
 
-<img src="https://github.com/user-attachments/assets/d1cdddbc-46e6-4e74-afa3-312e1fffd9d0" alt="Command Prompt Test" width="500"/>
+If everything is set up correctly, you can now paste the snippet into your browser console.
 
-✅ **If the script runs, the setup is complete!** 🎉
+✅ You're all set! 🎉
+
+🖥️ Usage
+
+Run the script (cwkv or python components_to_clipboard.py).
+
+Paste the copied JavaScript snippet into the browser console.
+
+View a table displaying the detected component versions alongside the latest available versions.
+
+🤝 Contributing
+
+Feel free to open issues or suggest more libraries to be checked to improve this tool!
+
+
+
+📜 License
+
+This project is licensed under the MIT License.
+
+🚀 Happy version checking!
