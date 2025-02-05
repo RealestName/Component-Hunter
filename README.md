@@ -50,7 +50,7 @@
 <pre>@echo off
 python "C:\Users\admin\scripts\components_to_clipboard.py" %*</pre>
 
-<p>Save the file and name it with the shortcut command suits you, for example, cwkv.bat</p>
+<p>Save the file within the same folder and name it with the shortcut command suits you, for example, cwkv.bat</p>
 
 <h2>4️⃣ Run the Script</h2>
 <p>To fetch and copy the latest JavaScript snippet to the clipboard, simply run:</p>
