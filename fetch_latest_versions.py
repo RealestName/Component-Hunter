@@ -1,7 +1,9 @@
+import threading
+import os  # Import os to access the environment variable
+from flask import Flask
 import requests
 from bs4 import BeautifulSoup
 import re
-from flask import Flask
 import json
 
 GITHUB_FILE_PATH = "script.txt"
@@ -14,8 +16,9 @@ def hello_world():
     return 'Hello World!'
 
 def run_flask():
-    """Function to run the Flask app."""
-    app.run(host='0.0.0.0', port=4000)  # Required for Render's web services
+    """Function to run the Flask app on a dynamic port"""
+    port = int(os.getenv('PORT', 4000))  # Use the PORT environment variable for Render
+    app.run(host='0.0.0.0', port=port)  # Flask will bind to this port
 
 # List of libraries and their respective changelog URLs
 library_changelogs = {
@@ -126,7 +129,5 @@ def update_github_file(file_content, new_versions):
 
 
 if __name__ == '__main__':
-
-    flask_thread = threading.Thread(target=run_flask)
-    flask_thread.daemon = True
-    flask_thread.start()
+    # Run Flask in the main thread
+    run_flask()
