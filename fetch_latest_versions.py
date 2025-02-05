@@ -144,7 +144,7 @@ def update_github_file(file_info, new_versions):
     update_url = f"https://api.github.com/repos/{GITHUB_OWNER}/{GITHUB_REPO}/contents/{GITHUB_FILE_PATH}"
     response = requests.put(update_url, headers=headers, json=update_data)
 
-    if response.status_code in [200, 201]:
+    if response.status_code in [201]:
         print("GitHub file updated successfully with new versions.")
     else:
         print(f"Failed to update GitHub file: {response.status_code}, {response.text}")
@@ -152,6 +152,6 @@ def update_github_file(file_info, new_versions):
 if __name__ == '__main__':
     file_info = get_github_file_content()
     update_github_file(file_info, library_versions)
-
+    
     # Run Flask in the main thread
     run_flask()
