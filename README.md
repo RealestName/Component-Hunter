@@ -1,50 +1,100 @@
-# Instructions
-
-This fetch & update script runs 24/7 by a bot. You, as a user, just need to download the components_to_clipboard.py to your local machine and....
-
-
-Setting Up components_to_clipboard.py as cwkv alias command on Windows - 
-
-Steps to Set Up
-
-1. Move or Locate the Script
-
-Place components_to_clipboard.py in a folder where you want to keep your scripts. For example:
-
-{Full_Path_to_File}\components_to_clipboard.py
-
-2. Add the Directory to the System PATH
-
-You need to add the folder containing the script to your system's PATH.
-
-  2.1 Press Win + R, type sysdm.cpl, and hit Enter.
-  <img width="286" alt="image" src="https://github.com/user-attachments/assets/d4d568c3-f0d1-45e2-ab66-10ae403f0ead" />
-
-  2.2 Navigate to the Advanced tab and click Environment Variables.
-  <img width="308" alt="image" src="https://github.com/user-attachments/assets/77913ff1-a156-4c2f-a3e6-422353f8b4e1" />
-
-  2.3 Under System variables, find and select the Path variable, then click Edit.
-  <img width="423" alt="image" src="https://github.com/user-attachments/assets/0d196c25-1893-4278-afa7-cb95258b9c1d" />
-
-  2.4 Click New and add the full path to the folder (e.g., C:\Users\YourUsername\Scripts\).
-  <img width="377" alt="image" src="https://github.com/user-attachments/assets/b9cae7af-411b-44ca-b27c-18fc8d999932" />
-
-  2.5 Click OK to save and exit.
-
-3. Create a Batch File (Alias cwkv)
-
-To allow running the script by typing cwkv, create a batch file:
-
-  3.1 Open any text editor and paste the following:
-
-      @echo off
-      python "<PATH_TO_SCRIPT>" %*
-
-  3.2 Save the file as cwkv.bat in the same folder as your script.
-  <img width="144" alt="image" src="https://github.com/user-attachments/assets/8c91058c-0ae4-428c-b8cb-f8b039cb3cdb" />
-
-  3.3 Test it by opening a new command prompt and typing:
-    cwkv
-<img width="256" alt="image" src="https://github.com/user-attachments/assets/d1cdddbc-46e6-4e74-afa3-312e1fffd9d0" />
-
-  If the script runs, the setup is complete. :)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup Instructions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: auto;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        code {
+            background: #eee;
+            padding: 3px 6px;
+            border-radius: 4px;
+        }
+        .steps {
+            padding-left: 20px;
+        }
+        .steps img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .code-block {
+            background: #333;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .code-block pre {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Setup Instructions</h1>
+        <p>This fetch & update script runs 24/7 by a bot. You just need to download <code>components_to_clipboard.py</code> and follow the steps below.</p>
+        
+        <h2>Setting Up <code>components_to_clipboard.py</code> as <code>cwkv</code> Alias on Windows</h2>
+        
+        <h3>1. Move or Locate the Script</h3>
+        <p>Place <code>components_to_clipboard.py</code> in a folder where you want to keep your scripts.</p>
+        
+        <h3>2. Add the Directory to System PATH</h3>
+        <div class="steps">
+            <p><strong>2.1</strong> Press <code>Win + R</code>, type <code>sysdm.cpl</code>, and hit Enter.</p>
+            <img src="https://github.com/user-attachments/assets/d4d568c3-f0d1-45e2-ab66-10ae403f0ead" alt="System Properties">
+            
+            <p><strong>2.2</strong> Navigate to the <strong>Advanced</strong> tab and click <strong>Environment Variables</strong>.</p>
+            <img src="https://github.com/user-attachments/assets/77913ff1-a156-4c2f-a3e6-422353f8b4e1" alt="Environment Variables">
+            
+            <p><strong>2.3</strong> Under System variables, find and select <strong>Path</strong>, then click <strong>Edit</strong>.</p>
+            <img src="https://github.com/user-attachments/assets/0d196c25-1893-4278-afa7-cb95258b9c1d" alt="Path Variable">
+            
+            <p><strong>2.4</strong> Click <strong>New</strong> and add the full path to your folder (e.g., <code>C:\Users\YourUsername\Scripts\</code>).</p>
+            <img src="https://github.com/user-attachments/assets/b9cae7af-411b-44ca-b27c-18fc8d999932" alt="Add Path">
+            
+            <p><strong>2.5</strong> Click <strong>OK</strong> to save and exit.</p>
+        </div>
+        
+        <h3>3. Create a Batch File (Alias <code>cwkv</code>)</h3>
+        <div class="steps">
+            <p><strong>3.1</strong> Open a text editor and paste the following:</p>
+            <div class="code-block">
+                <pre>@echo off
+python "<PATH_TO_SCRIPT>" %*</pre>
+            </div>
+            
+            <p><strong>3.2</strong> Save the file as <code>cwkv.bat</code> in the same folder as your script.</p>
+            <img src="https://github.com/user-attachments/assets/8c91058c-0ae4-428c-b8cb-f8b039cb3cdb" alt="Save Batch File">
+            
+            <p><strong>3.3</strong> Open a new command prompt and type:</p>
+            <div class="code-block">
+                <pre>cwkv</pre>
+            </div>
+            <img src="https://github.com/user-attachments/assets/d1cdddbc-46e6-4e74-afa3-312e1fffd9d0" alt="Command Prompt Test">
+        </div>
+        
+        <p>If the script runs, the setup is complete! ✅</p>
+    </div>
+</body>
+</html>
