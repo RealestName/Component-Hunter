@@ -85,8 +85,8 @@ def get_github_file_content():
     response.raise_for_status()
     return response.json()
 
-# update the file on 
-  def update_github_file(file_content, new_versions):
+# update the file on GitHub
+def update_github_file(file_content, new_versions):
     # regex to match the `latestVersions` JSON object
     version_regex = r"const latestVersions = \{.*?\};"
 
@@ -112,9 +112,3 @@ def get_github_file_content():
 
     print("GitHub file updated successfully with new versions.")
 
-# Get the current file content from GitHub and update it
-try:
-    file_content = get_github_file_content()
-    update_github_file(file_content, library_versions)
-except Exception as e:
-    print(f"Error updating the GitHub file: {e}")
