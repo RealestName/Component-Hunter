@@ -1,41 +1,43 @@
-# Setup Instructions
+<h1 align="center">🛠️ Setup Instructions</h1>
 
-This fetch & update script runs 24/7 by a bot. You just need to download `components_to_clipboard.py` and follow the steps below.
+<p align="center">This fetch & update script runs 24/7 by a bot. You just need to download <code>components_to_clipboard.py</code> and follow the steps below.</p>
 
-## Setting Up `components_to_clipboard.py` as `cwkv` Alias on Windows
+---
 
-### 1. Move or Locate the Script
-Place `components_to_clipboard.py` in a folder where you want to keep your scripts.
+## 🚀 Setting Up <code>components_to_clipboard.py</code> as <code>cwkv</code> Alias on Windows
 
-### 2. Add the Directory to System PATH
+### 1️⃣ Move or Locate the Script
+Place <code>components_to_clipboard.py</code> in a folder where you want to keep your scripts.
 
-#### 2.1 Open System Properties
-Press `Win + R`, type `sysdm.cpl`, and hit Enter.
+### 2️⃣ Add the Directory to System PATH
 
-![System Properties](https://github.com/user-attachments/assets/d4d568c3-f0d1-45e2-ab66-10ae403f0ead)
+#### 🔹 Open System Properties
+Press <kbd>Win</kbd> + <kbd>R</kbd>, type <code>sysdm.cpl</code>, and hit <kbd>Enter</kbd>.
 
-#### 2.2 Navigate to the Advanced tab and click **Environment Variables**
+<img src="https://github.com/user-attachments/assets/d4d568c3-f0d1-45e2-ab66-10ae403f0ead" alt="System Properties" width="500"/>
 
-![Environment Variables](https://github.com/user-attachments/assets/77913ff1-a156-4c2f-a3e6-422353f8b4e1)
+#### 🔹 Navigate to Advanced tab and Click **Environment Variables**
 
-#### 2.3 Edit the Path Variable
+<img src="https://github.com/user-attachments/assets/77913ff1-a156-4c2f-a3e6-422353f8b4e1" alt="Environment Variables" width="500"/>
+
+#### 🔹 Edit the Path Variable
 Under **System variables**, find and select **Path**, then click **Edit**.
 
-![Path Variable](https://github.com/user-attachments/assets/0d196c25-1893-4278-afa7-cb95258b9c1d)
+<img src="https://github.com/user-attachments/assets/0d196c25-1893-4278-afa7-cb95258b9c1d" alt="Path Variable" width="500"/>
 
-#### 2.4 Add Your Script's Folder Path
-Click **New** and add the full path to your folder (e.g., `C:\Users\YourUsername\Scripts\`).
+#### 🔹 Add Your Script's Folder Path
+Click **New** and add the full path to your folder (e.g., <code>C:\Users\YourUsername\Scripts\</code>).
 
-![Add Path](https://github.com/user-attachments/assets/b9cae7af-411b-44ca-b27c-18fc8d999932)
+<img src="https://github.com/user-attachments/assets/b9cae7af-411b-44ca-b27c-18fc8d999932" alt="Add Path" width="500"/>
 
-#### 2.5 Save Changes
+#### 🔹 Save Changes
 Click **OK** to save and exit.
 
 ---
 
-### 3. Create a Batch File (Alias `cwkv`)
+### 3️⃣ Create a Batch File (Alias <code>cwkv</code>)
 
-#### 3.1 Create a New Batch File
+#### ✍️ Create a New Batch File
 Open a text editor and paste the following:
 
 ```batch
@@ -43,18 +45,18 @@ Open a text editor and paste the following:
 python "<PATH_TO_SCRIPT>" %*
 ```
 
-#### 3.2 Save the File
-Save the file as `cwkv.bat` in the same folder as your script.
+#### 💾 Save the File
+Save the file as <code>cwkv.bat</code> in the same folder as your script.
 
-![Save Batch File](https://github.com/user-attachments/assets/8c91058c-0ae4-428c-b8cb-f8b039cb3cdb)
+<img src="https://github.com/user-attachments/assets/8c91058c-0ae4-428c-b8cb-f8b039cb3cdb" alt="Save Batch File" width="500"/>
 
-#### 3.3 Test the Command
+#### 🖥️ Test the Command
 Open a new command prompt and type:
 
 ```sh
 cwkv
 ```
 
-![Command Prompt Test](https://github.com/user-attachments/assets/d1cdddbc-46e6-4e74-afa3-312e1fffd9d0)
+<img src="https://github.com/user-attachments/assets/d1cdddbc-46e6-4e74-afa3-312e1fffd9d0" alt="Command Prompt Test" width="500"/>
 
-✅ If the script runs, the setup is complete!
+✅ **If the script runs, the setup is complete!** 🎉
