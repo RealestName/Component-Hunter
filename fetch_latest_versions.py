@@ -6,6 +6,11 @@ from bs4 import BeautifulSoup
 import re
 import json
 
+# Get environment variables
+GITHUB_OWNER = os.getenv("GITHUB_OWNER")
+GITHUB_REPO = os.getenv("GITHUB_REPO")
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+
 GITHUB_FILE_PATH = "script.txt"
 
 # Flask setup
