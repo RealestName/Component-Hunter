@@ -4,7 +4,7 @@
 
 <p>This project includes a bot that automatically checks for new versions of web application libraries every 12 hours. Additionally, it provides a JavaScript snippet that can be pasted into the browser console to detect and display the currently used versions of specified components alongside their latest available versions.</p>
 
-<p>A Python script is also included, which retrieves the JavaScript snippet from the <b>script.txt</b> file and copies it to the clipboard, allowing to easily paste it into their browser console.</p>
+<p>A Python script is also included, which retrieves the JavaScript snippet (script.txt) from this repository and copies it to the clipboard, allowing to easily paste it into their browser console.</p>
 
 <h2>🚀 Features</h2>
 
@@ -45,40 +45,29 @@
 
 <h4>✍️ Create a New Batch File</h4>
 
-<p>Open a text editor and paste the following:</p>
+<p>1.Open a text editor and paste the following:</p>
 
-```batch
-@echo off
-python "C:\Users\admin\scripts\components_to_clipboard.py" %*
+<pre>@echo off
+python "C:\Users\admin\scripts\components_to_clipboard.py" %*</pre>
 
-Save the file as cwkv.bat in the same folder as your script.
+<h2>4️⃣ Run the Script</h2>
+<p>To fetch and copy the latest JavaScript snippet to the clipboard, simply run:</p>
+<pre>cwkv</pre>
+<p>If everything is set up correctly, you can now paste the snippet into your browser console.</p>
 
-4️⃣ Run the Script
+<h2>✅ You're all set! 🎉</h2>
 
-To fetch and copy the latest JavaScript snippet to the clipboard, simply run:
+<h3>🖥️ Usage</h3>
+<ul>
+    <li>Run the script (<code>cwkv</code> or <code>python components_to_clipboard.py</code>).</li>
+    <li>Paste the copied JavaScript snippet into the browser console.</li>
+    <li>View a table displaying the detected component versions alongside the latest available versions.</li>
+</ul>
 
-cwkv
+<h3>🤝 Contributing</h3>
+<p>Feel free to open issues or suggest more libraries to be checked to improve this tool!</p>
 
-If everything is set up correctly, you can now paste the snippet into your browser console.
+<h3>📜 License</h3>
+<p>This project is licensed under the MIT License.</p>
 
-✅ You're all set! 🎉
-
-🖥️ Usage
-
-Run the script (cwkv or python components_to_clipboard.py).
-
-Paste the copied JavaScript snippet into the browser console.
-
-View a table displaying the detected component versions alongside the latest available versions.
-
-🤝 Contributing
-
-Feel free to open issues or suggest more libraries to be checked to improve this tool!
-
-
-
-📜 License
-
-This project is licensed under the MIT License.
-
-🚀 Happy version checking!
+<h2>🚀 Happy version checking!</h2>
