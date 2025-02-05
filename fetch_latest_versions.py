@@ -111,19 +111,31 @@ def update_github_file(file_content, new_versions):
     # replace the old `latestVersions` JSON with the new one
     updated_content = re.sub(version_regex, f"const latestVersions = {new_versions_json};", file_content, flags=re.DOTALL)
 
-    # get the sha of the file to update it
-    file_sha = file_content['sha']
+    # Get file metadata from GitHub API
+    file_metadata_url = f"https://api.github.com/repos/{GITHUB_OWNER}/{GITHUB_REPO}/contents/{GITHUB_FILE_PATH}?ref=main"
+    headers = {"Authorization": f"token {GITHUB_TOKEN}"}
+    response = requests.get(file_metadata_url, headers=headers)
+    response.raise_for_status()  # Raise error for bad status code
+    file_metadata = response.json()
+
+    # Get the sha of the file
+    file_sha = file_metadata['sha']
+
+    # Base64 encode the updated content
+    updated_content_base64 = base64.b64encode(updated_content.encode('utf-8')).decode('utf-8')
+
+    # Prepare the data for the PUT request
     update_url = f"https://api.github.com/repos/{GITHUB_OWNER}/{GITHUB_REPO}/contents/{GITHUB_FILE_PATH}"
-    
+
     update_data = {
         "message": "Update versions in script.txt",
-        "content": updated_content.encode("utf-8").decode("utf-8"),
+        "content": updated_content_base64,
         "sha": file_sha,
     }
 
-    headers = {"Authorization": f"token {GITHUB_TOKEN}"}
+    # Send the PUT request to update the file
     response = requests.put(update_url, headers=headers, json=update_data)
-    response.raise_for_status()
+    response.raise_for_status()  # Raise error for bad status code
 
     print("GitHub file updated successfully with new versions.")
 
