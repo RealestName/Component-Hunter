@@ -45,10 +45,12 @@
 
 <h4>✍️ Create a New Batch File</h4>
 
-<p>1.Open a text editor and paste the following:</p>
+<p>Open a text editor and paste the following</p>
 
 <pre>@echo off
 python "C:\Users\admin\scripts\components_to_clipboard.py" %*</pre>
+
+<p>Save the file and name it with the shortcut command suits you, for example, cwkv.bat</p>
 
 <h2>4️⃣ Run the Script</h2>
 <p>To fetch and copy the latest JavaScript snippet to the clipboard, simply run:</p>
