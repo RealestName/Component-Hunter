@@ -3,10 +3,7 @@ from bs4 import BeautifulSoup
 import re
 import json
 
-GITHUB_OWNER = "your-github-username"
-GITHUB_REPO = "your-repo-name"
 GITHUB_FILE_PATH = "script.txt"
-GITHUB_TOKEN = "your-github-token"
 
 # List of libraries and their respective changelog URLs
 library_changelogs = {
