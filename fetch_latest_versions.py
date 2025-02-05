@@ -5,6 +5,7 @@ import requests
 from bs4 import BeautifulSoup
 import re
 import json
+import base64
 
 # Get environment variables
 GITHUB_OWNER = os.getenv("GITHUB_OWNER")
@@ -97,28 +98,33 @@ for library, url in library_changelogs.items():
     else:
         print(f"Could not fetch version for {library}")
 
-# get the current content of the file from github
 def get_github_file_content():
     url = f"https://api.github.com/repos/{GITHUB_OWNER}/{GITHUB_REPO}/contents/{GITHUB_FILE_PATH}"
     headers = {"Authorization": f"token {GITHUB_TOKEN}"}
+    
     response = requests.get(url, headers=headers)
     response.raise_for_status()
-    return response.json()
+    
+    file_data = response.json()
+    content = base64.b64decode(file_data["content"]).decode("utf-8")  # Decode the file content
+    
+    return {"content": content, "sha": file_data["sha"]}  # Return both content and sha
 
-# Update the GitHub file with new versions
-def update_github_file(file_content, new_versions):
-    # Regex to match the `latestVersions` JSON object
-    version_regex = r"const latestVersions = \{.*?\};"
+
+def update_github_file(file_info, new_versions):
+    file_content = file_info["content"]
+    file_sha = file_info["sha"]
 
     # Create the new versions JSON
     new_versions_json = json.dumps(new_versions, indent=4)
 
-    # Replace the old `latestVersions` JSON with the new one
+    # Try to find and replace the `latestVersions` object
+    version_regex = r"const latestVersions = \{.*?\};"
     updated_content = re.sub(version_regex, f"const latestVersions = {new_versions_json};", file_content, flags=re.DOTALL)
 
-    # Get the sha of the file to update it
-    file_sha = file_content['sha']
-    update_url = f"https://api.github.com/repos/{GITHUB_OWNER}/{GITHUB_REPO}/contents/{GITHUB_FILE_PATH}"
+    if updated_content == file_content:
+        print("No changes detected in latestVersions. Skipping update.")
+        return
 
     # Encode the updated content in base64
     encoded_content = base64.b64encode(updated_content.encode("utf-8")).decode("utf-8")
@@ -130,16 +136,15 @@ def update_github_file(file_content, new_versions):
         "sha": file_sha,
     }
 
-    # Add the authorization header
     headers = {"Authorization": f"token {GITHUB_TOKEN}"}
 
-    # Make the PUT request to update the file
+    update_url = f"https://api.github.com/repos/{GITHUB_OWNER}/{GITHUB_REPO}/contents/{GITHUB_FILE_PATH}"
     response = requests.put(update_url, headers=headers, json=update_data)
 
-    # Check for errors in the response
-    response.raise_for_status()
-
-    print("GitHub file updated successfully with new versions.")
+    if response.status_code == 200 or response.status_code == 201:
+        print("GitHub file updated successfully with new versions.")
+    else:
+        print(f"Failed to update GitHub file: {response.status_code}, {response.text}")
 
 
 if __name__ == '__main__':
