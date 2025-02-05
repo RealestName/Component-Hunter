@@ -98,6 +98,21 @@ for library, url in library_changelogs.items():
     else:
         print(f"Could not fetch version for {library}")
 
+def update_versions():
+    """Fetch versions and update GitHub file"""
+    library_versions = {}
+
+    for library, url in library_changelogs.items():
+        print(f"Fetching version for {library} from {url}...")
+        version = fetch_latest_version(url)
+        if version:
+            library_versions[library] = version
+        else:
+            print(f"Could not fetch version for {library}")
+
+    file_info = get_github_file_content()
+    update_github_file(file_info, library_versions)
+
 def get_github_file_content():
     url = f"https://api.github.com/repos/{GITHUB_OWNER}/{GITHUB_REPO}/contents/{GITHUB_FILE_PATH}"
     headers = {"Authorization": f"token {GITHUB_TOKEN}"}
@@ -148,6 +163,14 @@ def update_github_file(file_info, new_versions):
         print("GitHub file updated successfully with new versions.")
     else:
         print(f"Failed to update GitHub file: {response.status_code}, {response.text}")
+
+def update_every_24_hours():
+    """Run the update process every 24 hours"""
+    while True:
+        print("\n🔄 Running scheduled update...")
+        update_versions()
+        print("✅ Update complete. Sleeping for 24 hours...\n")
+        time.sleep(86400)  # Sleep for 24 hours (24 * 60 * 60)
 
 if __name__ == '__main__':
     file_info = get_github_file_content()
