@@ -1,0 +1,3 @@
+#Instructions#
+
+This fetch & update script runs 24/7 by a bot. You, as a user, just need to download the components_to_clipboard.py to your local machine and....
