@@ -141,7 +141,7 @@
     "Ember.js": "6.3.0-beta.1",
     "Polymer": "3.5.2",
     "ExtJS": "7.8.0",
-    "jQuery": "4.0.0-beta.2",
+    "jQuery": "3.7.0",
     "jQuery UI": "1.14.1",
     "jQuery UI Touch Punch": "0.2.3",
     "jQuery Migrate": "3.5.2",
