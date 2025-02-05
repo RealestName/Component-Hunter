@@ -1,55 +1,53 @@
 <h1>🔍 Web Application Library Version Checker</h1>
 
-📌 Overview
+<h2>📌 Overview</h2>
 
-This project includes a bot that automatically checks for new versions of web application libraries every 12 hours. Additionally, it provides a JavaScript snippet that can be pasted into the browser console to detect and display the currently used versions of specified components alongside their latest available versions.
+<p>This project includes a bot that automatically checks for new versions of web application libraries every 12 hours. Additionally, it provides a JavaScript snippet that can be pasted into the browser console to detect and display the currently used versions of specified components alongside their latest available versions.</p>
 
-A Python script is also included, which retrieves the JavaScript snippet from a GitHub-hosted file and copies it to the clipboard, allowing users to easily paste it into their browser console.
+<p>A Python script is also included, which retrieves the JavaScript snippet from a GitHub-hosted file and copies it to the clipboard, allowing users to easily paste it into their browser console.</p>
 
-🚀 Features
+<h2>🚀 Features</h2>
 
-Automated Version Checking: The bot runs every 12 hours to detect new library versions.
+<ul>
+  <li><b>Automated Version Checking:</b> The bot runs every 12 hours to detect new library versions.</li>
+  <li><b>JavaScript Snippet:</b> Extracts the current versions of specified web application components and displays them in a structured table.</li>
+  <li><b>Clipboard Helper:</b> A Python script fetches the latest JavaScript snippet and copies it to the clipboard for quick usage.</li>
+  <li><b>Simple Setup:</b> Easily integrate the Python script into your system for convenient access.</li>
+</ul>
 
-JavaScript Snippet: Extracts the current versions of specified web application components and displays them in a structured table.
+<h2>🛠️ Installation & Setup</h2>
 
-Clipboard Helper: A Python script fetches the latest JavaScript snippet and copies it to the clipboard for quick usage.
+<h3>1️⃣ Download & Place the Script</h3>
 
-Simple Setup: Easily integrate the Python script into your system for convenient access.
+<p>Download <code>components_to_clipboard.py</code> and place it in a preferred folder where you keep scripts.</p>
 
-🛠️ Installation & Setup
+<h3>2️⃣ Add Script Folder to System PATH (Windows)</h3>
 
-1️⃣ Download & Place the Script
+<p>To run the script from anywhere, add its directory to the system PATH.</p>
 
-Download components_to_clipboard.py and place it in a preferred folder where you keep scripts.
+<h4>🔹 Open System Properties</h4>
+<ul>
+  <li>Press <kbd>Win</kbd> + <kbd>R</kbd>, type <code>sysdm.cpl</code>, and press <kbd>Enter</kbd>.</li>
+</ul>
 
-2️⃣ Add Script Folder to System PATH (Windows)
+<h4>🔹 Navigate to Environment Variables</h4>
+<ul>
+  <li>Click the <b>Advanced</b> tab.</li>
+  <li>Select <b>Environment Variables</b>.</li>
+  <li>Under <b>System variables</b>, find and edit the <b>Path</b> variable.</li>
+  <li>Click <b>New</b> and add the full path to the folder containing the script (e.g., <code>C:\Users\admin\scripts\</code>).</li>
+  <li>Click <b>OK</b> to save.</li>
+</ul>
 
-To run the script from anywhere, add its directory to the system PATH.
+<h3>3️⃣ Create a Batch Alias (Optional for Windows Users)</h3>
 
-🔹 Open System Properties
+<p>For easier execution, create a batch file alias.</p>
 
-Press Win + R, type sysdm.cpl, and press Enter.
+<h4>✍️ Create a New Batch File</h4>
 
-🔹 Navigate to Environment Variables
+<p>Open a text editor and paste the following:</p>
 
-Click the Advanced tab.
-
-Select Environment Variables.
-
-Under System variables, find and edit the Path variable.
-
-Click New and add the full path to the folder containing the script (e.g., C:\Users\admin\scripts\).
-
-Click OK to save.
-
-3️⃣ Create a Batch Alias (Optional for Windows Users)
-
-For easier execution, create a batch file alias.
-
-✍️ Create a New Batch File
-
-Open a text editor and paste the following:
-
+```batch
 @echo off
 python "C:\Users\admin\scripts\components_to_clipboard.py" %*
 
