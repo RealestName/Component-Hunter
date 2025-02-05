@@ -121,28 +121,22 @@ def update_github_file(file_info, new_versions):
     # Create the new versions JSON
     new_versions_json = json.dumps(new_versions, indent=4)
 
-    # Try to find and replace the `latestVersions` object
+    # Replace `latestVersions` if it exists, otherwise append
     version_regex = r"const latestVersions = \{.*?\};"
-    
     if re.search(version_regex, file_content, flags=re.DOTALL):
         updated_content = re.sub(version_regex, f"const latestVersions = {new_versions_json};", file_content, flags=re.DOTALL)
     else:
-        # If `latestVersions` isn't found, append it to the file
         updated_content = file_content + f"\nconst latestVersions = {new_versions_json};"
-
-    if updated_content == file_content:
-        print("No changes detected in latestVersions. Skipping update.")
-        return
 
     # Encode the updated content in base64
     encoded_content = base64.b64encode(updated_content.encode("utf-8")).decode("utf-8")
 
     # Prepare the data for the update request
     update_data = {
-        "message": "Update versions in script.txt",
+        "message": "Force update: Updating versions in script.txt",
         "content": encoded_content,
         "sha": file_sha,
-        "branch": "main"  # Change this to your correct branch
+        "branch": "main"  # Change to your correct branch
     }
 
     headers = {"Authorization": f"token {GITHUB_TOKEN}"}
