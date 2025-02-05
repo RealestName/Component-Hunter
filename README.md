@@ -4,7 +4,7 @@
 
 <p>This project includes a bot that automatically checks for new versions of web application libraries every 12 hours. Additionally, it provides a JavaScript snippet that can be pasted into the browser console to detect and display the currently used versions of specified components alongside their latest available versions.</p>
 
-<p>A Python script is also included, which retrieves the JavaScript snippet from a GitHub-hosted file and copies it to the clipboard, allowing users to easily paste it into their browser console.</p>
+<p>A Python script is also included, which retrieves the JavaScript snippet from the <b>script.txt</b> file and copies it to the clipboard, allowing to easily paste it into their browser console.</p>
 
 <h2>🚀 Features</h2>
 
