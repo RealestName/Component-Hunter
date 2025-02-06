@@ -9,7 +9,7 @@
 <h2>🚀 Features</h2>
 
 <ul>
-  <li><b>Automated Version Checking:</b> The bot runs every 12 hours to detect new library versions.</li>
+  <li><b>Automated Version Checking:</b> The bot runs every 24 hours to detect new library versions.</li>
   <li><b>JavaScript Snippet:</b> Extracts the current versions of specified web application components and displays them in a structured table.</li>
   <li><b>Clipboard Helper:</b> A Python script fetches the latest JavaScript snippet and copies it to the clipboard for quick usage.</li>
   <li><b>Simple Setup:</b> Easily integrate the Python script into your system for convenient access.</li>
