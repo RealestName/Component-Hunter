@@ -31,7 +31,7 @@ library_changelogs = {
     "Next.js": "https://nextjs.org/docs/upgrading",
     "Angular": "https://github.com/angular/angular/releases",
     "React": "https://react.dev/versions",
-    "Vue.js": "https://github.com/vuejs/vue/releases",
+    "Vue.js": "https://github.com/vuejs/core/blob/main/CHANGELOG.md",
     "Svelte": "https://github.com/sveltejs/svelte/releases",
     "Ember.js": "https://github.com/emberjs/ember.js/blob/main/CHANGELOG.md",
     "Polymer": "https://github.com/Polymer/polymer/releases",
