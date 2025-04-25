@@ -133,14 +133,13 @@
     };
 
     const latestVersions = {
-    "Next.js": "15.1.6",
-    "Angular": "19.2.0-next.1",
-    "React": "19.0.0",
+    "Angular": "20.0.0-next.8",
+    "React": "19.1.0",
     "Vue.js": "2.7.16",
-    "Svelte": "5.19.8",
-    "Ember.js": "6.3.0-beta.1",
+    "Svelte": "5.28.2",
+    "Ember.js": "6.4.0-beta.2",
     "Polymer": "3.5.2",
-    "ExtJS": "7.8.0",
+    "ExtJS": "7.9.0",
     "jQuery": "4.0.0-beta.2",
     "jQuery UI": "1.14.1",
     "jQuery UI Touch Punch": "0.2.3",
@@ -150,24 +149,24 @@
     "Lodash": "4.0.0",
     "Moment.js": "2.30.1",
     "Redux": "5.0.1",
-    "Axios": "1.7.9",
-    "Bootstrap": "5.3.3",
+    "Axios": "1.9.0",
+    "Bootstrap": "5.3.5",
     "Materialize": "1.0.0",
-    "Highcharts": "12.1.2",
-    "Chart.js": "4.4.7",
+    "Highcharts": "12.2.0",
+    "Chart.js": "4.4.9",
     "D3.js": "7.9.0",
     "DataTables": "2.2.2",
     "Toastr": "2.1.1",
-    "Anime.js": "3.2.2",
+    "Anime.js": "4.0.2",
     "Three.js": "129.0.6668",
-    "Fabric.js": "6.5.4",
-    "PixiJS": "8.7.3",
+    "Fabric.js": "6.6.4",
+    "PixiJS": "8.9.1",
     "Paper.js": "0.12.15",
     "Modernizr": "3.13.1",
     "Handlebars": "4.7.8",
     "Leaflet": "1.9.4",
     "TensorFlow.js": "4.22.0",
-    "CKEditor": "44.1.0"
+    "CKEditor": "45.0.0"
 };
 
     const results = Object.entries(checks)
